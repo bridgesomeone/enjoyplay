@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>銀座ピックルボール交流会 | 朝活で新しい繋がりを</title>
+    <meta name="description" content="銀座で開催されるピックルボール交流会。初心者大歓迎！20-30代中心で楽しく運動しながら新しい友達を作りませんか？">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-sans">
+    
+    <!-- ヒーローセクション -->
+    <section class="hero-section relative bg-gradient-to-br from-blue-50 to-white">
+        <div class="container mx-auto px-4 py-16 md:py-24">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <!-- 左側: テキストコンテンツ -->
+                <div class="text-center md:text-left">
+                    <div class="inline-block bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+                        初心者大歓迎！ラケット無料レンタル
+                    </div>
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                        銀座で朝活！<br>
+                        話題の『ピックルボール』で<br>
+                        心地よい汗と新しい繋がりを。
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-8">
+                        運動不足解消 × 友達作り × 銀座の好立地<br>
+                        20-30代が中心の、アットホームな交流会です。
+                    </p>
+                    
+                    <!-- イベント詳細 -->
+                    <div class="bg-white rounded-xl shadow-lg p-6 mb-8 border-2 border-blue-500">
+                        <div class="flex items-center justify-center md:justify-start mb-4">
+                            <svg class="w-6 h-6 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            <span class="text-2xl font-bold text-gray-900">次回開催</span>
+                        </div>
+                        <p class="text-3xl font-bold text-blue-600 mb-2">2月22日(日) 9:00〜11:00</p>
+                        <p class="text-gray-700 font-medium">📍 Pickleball Park One Ginza</p>
+                        
+                        <!-- カウントダウン -->
+                        <div class="mt-6 pt-6 border-t border-gray-200">
+                            <p class="text-sm text-gray-600 mb-3">開催まであと</p>
+                            <div class="grid grid-cols-4 gap-2" id="countdown">
+                                <div class="text-center">
+                                    <div class="bg-blue-600 text-white rounded-lg py-3 px-2 font-bold text-2xl" id="days">00</div>
+                                    <div class="text-xs text-gray-600 mt-1">日</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="bg-blue-600 text-white rounded-lg py-3 px-2 font-bold text-2xl" id="hours">00</div>
+                                    <div class="text-xs text-gray-600 mt-1">時間</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="bg-blue-600 text-white rounded-lg py-3 px-2 font-bold text-2xl" id="minutes">00</div>
+                                    <div class="text-xs text-gray-600 mt-1">分</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="bg-blue-600 text-white rounded-lg py-3 px-2 font-bold text-2xl" id="seconds">00</div>
+                                    <div class="text-xs text-gray-600 mt-1">秒</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- CTA ボタン -->
+                    <a href="https://forms.google.com/" target="_blank" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg px-10 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300">
+                        今すぐ参加申し込み
+                    </a>
+                    <p class="text-sm text-gray-500 mt-4">※ 定員になり次第、受付終了となります</p>
+                </div>
+                
+                <!-- 右側: 画像 -->
+                <div class="order-first md:order-last">
+                    <img src="https://placehold.co/1200x600/2563eb/ffffff?text=Pickleball+Joy" alt="ピックルボールを楽しむ様子" class="rounded-2xl shadow-2xl w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ピックルボール説明セクション -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                    ピックルボールって？
+                </h2>
+                <p class="text-xl text-blue-600 font-bold mb-8">
+                    「テニス × バドミントン × 卓球」のいいとこ取り！
+                </p>
+                <div class="grid md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-blue-50 rounded-xl p-6">
+                        <div class="text-4xl mb-3">🎾</div>
+                        <h3 class="font-bold text-lg mb-2">テニスより簡単</h3>
+                        <p class="text-gray-600 text-sm">コートは半分の広さ。体力に自信がなくても楽しめます。</p>
+                    </div>
+                    <div class="bg-blue-50 rounded-xl p-6">
+                        <div class="text-4xl mb-3">🏸</div>
+                        <h3 class="font-bold text-lg mb-2">すぐに上達</h3>
+                        <p class="text-gray-600 text-sm">ルールはシンプル。初めてでも30分でラリーが続きます。</p>
+                    </div>
+                    <div class="bg-blue-50 rounded-xl p-6">
+                        <div class="text-4xl mb-3">🏓</div>
+                        <h3 class="font-bold text-lg mb-2">世界的ブーム</h3>
+                        <p class="text-gray-600 text-sm">アメリカで大流行中。日本でも急速に人気拡大中！</p>
+                    </div>
+                </div>
+                <p class="text-gray-700 leading-relaxed">
+                    ピックルボールは、運動神経に自信がない方でも楽しめるスポーツです。ボールの速度も緩やかで、ルールも簡単。「スポーツは苦手…」という方こそ、ぜひ一度体験してみてください！きっと「楽しい！」と思っていただけるはずです。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- イベントの特徴セクション -->
+    <section class="py-16 bg-gradient-to-br from-blue-50 to-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
+                このイベントの3つの特徴
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- 特徴1 -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition duration-300">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">初心者大歓迎</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        参加者の約8割が初心者です。ラケットは無料でレンタルできるので、手ぶらでOK！スタッフが丁寧にルールを説明し、サポートします。運動が苦手な方も安心してご参加ください。
+                    </p>
+                </div>
+                
+                <!-- 特徴2 -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition duration-300">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">銀座の好立地</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        会場は銀座駅から徒歩圏内。朝活の後はおしゃれなカフェでランチや、銀座ショッピングも楽しめます。アクセス抜群で、遠方からの参加者も多数。朝活にぴったりの立地です。
+                    </p>
+                </div>
+                
+                <!-- 特徴3 -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition duration-300">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">交流がメイン</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        20-30代の参加者が中心で、アットホームな雰囲気。一人参加の方が多いので、誰でも溶け込みやすい環境です。スポーツを通じて自然と会話が生まれ、新しい友達ができます。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 当日の流れセクション -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
+                当日の流れ
+            </h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="space-y-6">
+                    <!-- ステップ1 -->
+                    <div class="flex items-start bg-blue-50 rounded-xl p-6 hover:bg-blue-100 transition duration-300">
+                        <div class="flex-shrink-0 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg mr-4">
+                            1
+                        </div>
+                        <div class="flex-grow">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">9:00 集合・受付・自己紹介</h3>
+                            <p class="text-gray-700">会場に集合後、簡単な受付と自己紹介タイム。リラックスした雰囲気でスタートします。</p>
+                        </div>
+                    </div>
+                    
+                    <!-- ステップ2 -->
+                    <div class="flex items-start bg-blue-50 rounded-xl p-6 hover:bg-blue-100 transition duration-300">
+                        <div class="flex-shrink-0 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg mr-4">
+                            2
+                        </div>
+                        <div class="flex-grow">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">9:15 ルール説明・基礎練習</h3>
+                            <p class="text-gray-700">スタッフがルールを分かりやすく説明。その後、基礎練習でラケットとボールに慣れていきます。</p>
+                        </div>
+                    </div>
+                    
+                    <!-- ステップ3 -->
+                    <div class="flex items-start bg-blue-50 rounded-xl p-6 hover:bg-blue-100 transition duration-300">
+                        <div class="flex-shrink-0 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg mr-4">
+                            3
+                        </div>
+                        <div class="flex-grow">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">9:30 ゲーム形式で対戦スタート</h3>
+                            <p class="text-gray-700">チームを組んで実際にゲームを楽しみます。メンバーをシャッフルしながら、いろんな方と交流できます。</p>
+                        </div>
+                    </div>
+                    
+                    <!-- ステップ4 -->
+                    <div class="flex items-start bg-blue-50 rounded-xl p-6 hover:bg-blue-100 transition duration-300">
+                        <div class="flex-shrink-0 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg mr-4">
+                            4
+                        </div>
+                        <div class="flex-grow">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">11:00 解散（希望者はランチへ）</h3>
+                            <p class="text-gray-700">お疲れさまでした！希望者は近くのカフェやレストランでランチ交流会。もちろん、そのまま解散もOKです。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 参加者の声セクション -->
+    <section class="py-16 bg-gradient-to-br from-blue-50 to-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
+                参加者の声
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- 声1 -->
+                <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                            <span class="text-blue-600 font-bold text-lg">M</span>
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-900">Mさん</p>
+                            <p class="text-sm text-gray-500">20代女性・会社員</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400 mb-3">★★★★★</div>
+                    <p class="text-gray-700 leading-relaxed">
+                        「運動が苦手な私でも本当に楽しめました！一人で参加したのですが、みんなフレンドリーですぐに打ち解けられました。また参加したいです。」
+                    </p>
+                </div>
+                
+                <!-- 声2 -->
+                <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                            <span class="text-blue-600 font-bold text-lg">T</span>
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-900">Tさん</p>
+                            <p class="text-sm text-gray-500">30代男性・IT企業勤務</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400 mb-3">★★★★★</div>
+                    <p class="text-gray-700 leading-relaxed">
+                        「在宅勤務で運動不足だったので、朝から体を動かせて最高でした。仕事以外の繋がりができて、週末が楽しみになりました！」
+                    </p>
+                </div>
+                
+                <!-- 声3 -->
+                <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                            <span class="text-blue-600 font-bold text-lg">R</span>
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-900">Rさん</p>
+                            <p class="text-sm text-gray-500">20代女性・看護師</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400 mb-3">★★★★★</div>
+                    <p class="text-gray-700 leading-relaxed">
+                        「ピックルボール初体験でしたが、ルールが簡単ですぐに楽しめました。スタッフの方も親切で、初心者でも安心して参加できる雰囲気でした。」
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 料金・詳細セクション -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
+                開催概要
+            </h2>
+            <div class="max-w-3xl mx-auto bg-gradient-to-br from-blue-50 to-white rounded-2xl shadow-xl p-8 md:p-12 border-2 border-blue-200">
+                <div class="space-y-6">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center mr-4 mt-1">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-900 text-lg mb-1">開催日時</h3>
+                            <p class="text-gray-700">2026年2月22日（日）9:00〜11:00</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center mr-4 mt-1">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-900 text-lg mb-1">開催場所</h3>
+                            <p class="text-gray-700">Pickleball Park One Ginza</p>
+                            <p class="text-sm text-gray-600 mt-1">東京メトロ銀座駅より徒歩5分</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center mr-4 mt-1">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-900 text-lg mb-1">参加費</h3>
+                            <p class="text-2xl font-bold text-blue-600">2,000円<span class="text-sm text-gray-600 font-normal ml-2">(目安)</span></p>
+                            <p class="text-sm text-gray-600 mt-1">※ コート代、ラケットレンタル代込み</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center mr-4 mt-1">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-900 text-lg mb-1">持ち物</h3>
+                            <p class="text-gray-700">動きやすい服装、運動靴（室内用）、飲み物、タオル</p>
+                            <p class="text-sm text-gray-600 mt-1">※ ラケットは無料レンタル可能です</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center mr-4 mt-1">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-900 text-lg mb-1">定員</h3>
+                            <p class="text-gray-700">20名程度（先着順）</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQセクション -->
+    <section class="py-16 bg-gradient-to-br from-blue-50 to-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
+                よくある質問
+            </h2>
+            <div class="max-w-3xl mx-auto space-y-4">
+                <!-- FAQ1 -->
+                <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <h3 class="font-bold text-lg text-gray-900 mb-3 flex items-start">
+                        <span class="text-blue-600 mr-2">Q.</span>
+                        一人での参加でも大丈夫ですか？
+                    </h3>
+                    <p class="text-gray-700 pl-6">
+                        <span class="text-blue-600 font-bold mr-2">A.</span>
+                        もちろん大丈夫です！参加者の約7割が一人参加です。自己紹介の時間やチーム分けを通じて、自然と会話が生まれる環境を作っていますので、安心してご参加ください。
+                    </p>
+                </div>
+                
+                <!-- FAQ2 -->
+                <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <h3 class="font-bold text-lg text-gray-900 mb-3 flex items-start">
+                        <span class="text-blue-600 mr-2">Q.</span>
+                        運動が苦手ですが、ついていけますか？
+                    </h3>
+                    <p class="text-gray-700 pl-6">
+                        <span class="text-blue-600 font-bold mr-2">A.</span>
+                        全く問題ありません！ピックルボールは運動神経に関係なく楽しめるスポーツです。ボールの速度も緩やかで、激しい動きは少ないです。参加者のほとんどが初心者なので、お気軽にご参加ください。
+                    </p>
+                </div>
+                
+                <!-- FAQ3 -->
+                <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <h3 class="font-bold text-lg text-gray-900 mb-3 flex items-start">
+                        <span class="text-blue-600 mr-2">Q.</span>
+                        道具は何か必要ですか？
+                    </h3>
+                    <p class="text-gray-700 pl-6">
+                        <span class="text-blue-600 font-bold mr-2">A.</span>
+                        ラケットとボールは無料でレンタルできますので、手ぶらでOKです。動きやすい服装と運動靴（室内用）、飲み物とタオルをお持ちください。更衣室も完備しています。
+                    </p>
+                </div>
+                
+                <!-- FAQ4 -->
+                <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <h3 class="font-bold text-lg text-gray-900 mb-3 flex items-start">
+                        <span class="text-blue-600 mr-2">Q.</span>
+                        年齢層はどのくらいですか？
+                    </h3>
+                    <p class="text-gray-700 pl-6">
+                        <span class="text-blue-600 font-bold mr-2">A.</span>
+                        20代〜30代の参加者が中心ですが、スポーツや交流を楽しみたい方であれば、どなたでも歓迎します。男女比は参加回によって異なりますが、バランスよく構成されることが多いです。
+                    </p>
+                </div>
+                
+                <!-- FAQ5 -->
+                <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition duration-300">
+                    <h3 class="font-bold text-lg text-gray-900 mb-3 flex items-start">
+                        <span class="text-blue-600 mr-2">Q.</span>
+                        キャンセルはできますか？
+                    </h3>
+                    <p class="text-gray-700 pl-6">
+                        <span class="text-blue-600 font-bold mr-2">A.</span>
+                        開催日の3日前までであれば、キャンセル可能です。それ以降のキャンセルは、キャンセル料が発生する場合がございますので、お早めにご連絡ください。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 最終CTAセクション -->
+    <section class="py-20 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">
+                さあ、一緒に楽しみましょう！
+            </h2>
+            <p class="text-xl mb-8 opacity-90">
+                新しい仲間と、心地よい汗を。<br>
+                銀座で素敵な朝活体験が待っています。
+            </p>
+            <a href="https://forms.google.com/" target="_blank" class="inline-block bg-white text-blue-600 hover:bg-gray-100 font-bold text-lg px-12 py-5 rounded-full shadow-2xl hover:shadow-3xl transform hover:scale-105 transition duration-300">
+                参加申し込みはこちら
+            </a>
+            <p class="text-sm mt-6 opacity-75">定員に達し次第、受付を終了いたします</p>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-400 text-sm">
+                © 2026 銀座ピックルボール交流会. All rights reserved.
+            </p>
+            <p class="text-gray-500 text-xs mt-2">
+                お問い合わせ: info@ginza-pickleball.com
+            </p>
+        </div>
+    </footer>
+
+    <!-- トースト通知 -->
+    <div id="toast" class="toast-notification">
+        <div class="toast-content">
+            <div class="toast-icon">💡</div>
+            <p class="toast-message">
+                記載の日程で参加が難しい方は、申し込みフォームより「別日程希望」を選択して頂くと、案内を送ります！
+            </p>
+            <button id="toast-close" class="toast-close">&times;</button>
+        </div>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>
