@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>銀座ピックルボール交流会 | 朝活で新しい繋がりを</title>
-    <meta name="description" content="銀座で開催されるピックルボール交流会。初心者大歓迎！20-30代中心で楽しく運動しながら新しい友達を作りませんか？">
+    <title>ピックルボール交流会 | 朝活で新しい繋がりを</title>
+    <meta name="description" content="ピックルボール交流会。初心者大歓迎！20-30代中心で楽しく運動しながら新しい友達を作りませんか？">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -15,7 +15,234 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* グローバル設定 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* スムーススクロール */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* トースト通知のスタイル */
+        .toast-notification {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            max-width: 400px;
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            z-index: 9999;
+            opacity: 0;
+            transform: translateY(20px) scale(0.9);
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            pointer-events: none;
+        }
+
+        .toast-notification.show {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+        }
+
+        .toast-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .toast-icon {
+            font-size: 24px;
+            flex-shrink: 0;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .toast-message {
+            flex: 1;
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .toast-close {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 24px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+
+        .toast-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+
+        /* レスポンシブ対応（トースト） */
+        @media (max-width: 640px) {
+            .toast-notification {
+                bottom: 20px;
+                right: 20px;
+                left: 20px;
+                max-width: none;
+            }
+        }
+
+        /* ヒーローセクションのアニメーション */
+        .hero-section {
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* ボタンホバーエフェクト強化 */
+        a[href*="forms.google.com"] {
+            position: relative;
+            overflow: hidden;
+        }
+
+        a[href*="forms.google.com"]::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        a[href*="forms.google.com"]:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        /* カウントダウンの数字アニメーション */
+        #countdown > div > div {
+            transition: transform 0.3s ease;
+        }
+
+        #countdown > div > div:hover {
+            transform: scale(1.05);
+        }
+
+        /* スクロールアニメーション用のクラス */
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* セクション間の区切り線装飾 */
+        section {
+            position: relative;
+        }
+
+        /* カード要素のグラデーション背景 */
+        .bg-gradient-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        /* スムーズなフォーカス表示 */
+        button:focus,
+        a:focus {
+            outline: 2px solid #2563eb;
+            outline-offset: 2px;
+        }
+
+        /* 画像のホバーエフェクト */
+        .image-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .image-hover:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 画像ギャラリーのスタイル */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        /* スクロールバーのカスタマイズ（Webkit系ブラウザ） */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #2563eb;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #1e40af;
+        }
+
+        /* プリント時の最適化 */
+        @media print {
+            .toast-notification,
+            footer,
+            button {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body class="font-sans">
     
@@ -26,15 +253,14 @@
                 <!-- 左側: テキストコンテンツ -->
                 <div class="text-center md:text-left">
                     <div class="inline-block bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
-                        初心者大歓迎！ラケット無料レンタル
+                        初心者大歓迎！
                     </div>
                     <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                        銀座で朝活！<br>
                         話題の『ピックルボール』で<br>
-                        心地よい汗と新しい繋がりを。
+                        心地よい汗を流しませんか？
                     </h1>
                     <p class="text-lg text-gray-600 mb-8">
-                        運動不足解消 × 友達作り × 銀座の好立地<br>
+                        運動不足解消 × 友達作り × 交流<br>
                         20-30代が中心の、アットホームな交流会です。
                     </p>
                     
@@ -46,8 +272,8 @@
                             </svg>
                             <span class="text-2xl font-bold text-gray-900">次回開催</span>
                         </div>
-                        <p class="text-3xl font-bold text-blue-600 mb-2">2月22日(日) 9:00〜11:00</p>
-                        <p class="text-gray-700 font-medium">📍 Pickleball Park One Ginza</p>
+                        <p class="text-3xl font-bold text-blue-600 mb-2">3月22日(日) 10:00〜12:00</p>
+                        <p class="text-gray-700 font-medium">📍 東京タワー ピックルボールコート</p>
                         
                         <!-- カウントダウン -->
                         <div class="mt-6 pt-6 border-t border-gray-200">
@@ -80,9 +306,9 @@
                     <p class="text-sm text-gray-500 mt-4">※ 定員になり次第、受付終了となります</p>
                 </div>
                 
-                <!-- 右側: 画像 -->
+                <!-- 右側: メイン画像 -->
                 <div class="order-first md:order-last">
-                    <img src="https://placehold.co/1200x600/2563eb/ffffff?text=Pickleball+Joy" alt="ピックルボールを楽しむ様子" class="rounded-2xl shadow-2xl w-full">
+                    <img src="./img/pikle_logo1.jpg" alt="ピックルボールを楽しむ人々" class="rounded-2xl shadow-2xl w-full image-hover">
                 </div>
             </div>
         </div>
@@ -91,31 +317,51 @@
     <!-- ピックルボール説明セクション -->
     <section class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                    ピックルボールって？
-                </h2>
-                <p class="text-xl text-blue-600 font-bold mb-8">
-                    「テニス × バドミントン × 卓球」のいいとこ取り！
-                </p>
-                <div class="grid md:grid-cols-3 gap-6 mb-8">
-                    <div class="bg-blue-50 rounded-xl p-6">
-                        <div class="text-4xl mb-3">🎾</div>
-                        <h3 class="font-bold text-lg mb-2">テニスより簡単</h3>
-                        <p class="text-gray-600 text-sm">コートは半分の広さ。体力に自信がなくても楽しめます。</p>
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                        ピックルボールって？
+                    </h2>
+                    <p class="text-xl text-blue-600 font-bold mb-8">
+                        「テニス × バドミントン × 卓球」のいいとこ取り！
+                    </p>
+                </div>
+
+                <!-- 画像付き説明 -->
+                <div class="grid md:grid-cols-2 gap-8 items-center mb-12">
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1622163642998-1ea32b0bbc67?w=800&h=600&fit=crop" alt="ピックルボールのラリー" class="rounded-xl shadow-lg w-full image-hover">
                     </div>
-                    <div class="bg-blue-50 rounded-xl p-6">
-                        <div class="text-4xl mb-3">🏸</div>
-                        <h3 class="font-bold text-lg mb-2">すぐに上達</h3>
-                        <p class="text-gray-600 text-sm">ルールはシンプル。初めてでも30分でラリーが続きます。</p>
-                    </div>
-                    <div class="bg-blue-50 rounded-xl p-6">
-                        <div class="text-4xl mb-3">🏓</div>
-                        <h3 class="font-bold text-lg mb-2">世界的ブーム</h3>
-                        <p class="text-gray-600 text-sm">アメリカで大流行中。日本でも急速に人気拡大中！</p>
+                    <div>
+                        <div class="grid gap-6">
+                            <div class="bg-blue-50 rounded-xl p-6">
+                                <div class="text-4xl mb-3">🎾</div>
+                                <h3 class="font-bold text-lg mb-2">世界的ブーム</h3>
+                                <p class="text-gray-600 text-sm">アメリカで5000万人がプレイしたことがあるスポーツで、日本でも急速に人気拡大中！</p>
+                            </div>
+                            <div class="bg-blue-50 rounded-xl p-6">
+                                <div class="text-4xl mb-3">🏸</div>
+                                <h3 class="font-bold text-lg mb-2">すぐに上達</h3>
+                                <p class="text-gray-600 text-sm">初めてでも、すぐにラリーが出来るようになります。</p>
+                            </div>
+                            <div class="bg-blue-50 rounded-xl p-6">
+                                <div class="text-4xl mb-3">🏓</div>
+                                <h3 class="font-bold text-lg mb-2">手軽に楽しめる！</h3>
+                                <p class="text-gray-600 text-sm">コートはテニスの約1/3の広さ。体力に自信がなくても楽しめます。</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <p class="text-gray-700 leading-relaxed">
+
+                <!-- ピックルボールギャラリー -->
+                <div class="gallery-grid mb-8">
+                    <img src="./img/usiro_sugata1.JPG" alt="ピックルボールのプレイシーン1" class="rounded-lg shadow-md w-full h-64 object-cover image-hover">
+                    <img src="https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=400&h=300&fit=crop" alt="ピックルボールのプレイシーン2" class="rounded-lg shadow-md w-full h-64 object-cover image-hover">
+                    <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?w=400&h=300&fit=crop" alt="ピックルボールのプレイシーン3" class="rounded-lg shadow-md w-full h-64 object-cover image-hover">
+                    <img src="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=400&h=300&fit=crop" alt="ピックルボールのプレイシーン4" class="rounded-lg shadow-md w-full h-64 object-cover image-hover">
+                </div>
+
+                <p class="text-gray-700 leading-relaxed text-center max-w-3xl mx-auto">
                     ピックルボールは、運動神経に自信がない方でも楽しめるスポーツです。ボールの速度も緩やかで、ルールも簡単。「スポーツは苦手…」という方こそ、ぜひ一度体験してみてください！きっと「楽しい！」と思っていただけるはずです。
                 </p>
             </div>
@@ -150,9 +396,9 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">銀座の好立地</h3>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">好立地</h3>
                     <p class="text-gray-600 leading-relaxed">
-                        会場は銀座駅から徒歩圏内。朝活の後はおしゃれなカフェでランチや、銀座ショッピングも楽しめます。アクセス抜群で、遠方からの参加者も多数。朝活にぴったりの立地です。
+                        都内にコートを使用してプレイします。どこもアクセス抜群の朝活にぴったりの立地です。
                     </p>
                 </div>
                 
@@ -172,12 +418,18 @@
         </div>
     </section>
 
-    <!-- 当日の流れセクション -->
+    <!-- 当日の流れセクション（画像追加版） -->
     <section class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
                 当日の流れ
             </h2>
+
+            <!-- プレイ風景画像 -->
+            <div class="max-w-4xl mx-auto mb-12">
+                <img src="https://images.unsplash.com/photo-1551958219-acbc608c6377?w=1200&h=500&fit=crop" alt="ピックルボール交流会の様子" class="rounded-2xl shadow-xl w-full image-hover">
+            </div>
+
             <div class="max-w-3xl mx-auto">
                 <div class="space-y-6">
                     <!-- ステップ1 -->
@@ -186,7 +438,7 @@
                             1
                         </div>
                         <div class="flex-grow">
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">9:00 集合・受付・自己紹介</h3>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">10:00 集合・受付・自己紹介</h3>
                             <p class="text-gray-700">会場に集合後、簡単な受付と自己紹介タイム。リラックスした雰囲気でスタートします。</p>
                         </div>
                     </div>
@@ -197,8 +449,8 @@
                             2
                         </div>
                         <div class="flex-grow">
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">9:15 ルール説明・基礎練習</h3>
-                            <p class="text-gray-700">スタッフがルールを分かりやすく説明。その後、基礎練習でラケットとボールに慣れていきます。</p>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">10:15 ルール説明・基礎練習</h3>
+                            <p class="text-gray-700">簡単なルール説明して、その後、基礎練習でラケットとボールに慣れていきます。</p>
                         </div>
                     </div>
                     
@@ -208,8 +460,8 @@
                             3
                         </div>
                         <div class="flex-grow">
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">9:30 ゲーム形式で対戦スタート</h3>
-                            <p class="text-gray-700">チームを組んで実際にゲームを楽しみます。メンバーをシャッフルしながら、いろんな方と交流できます。</p>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">10:30 ゲーム形式で対戦スタート</h3>
+                            <p class="text-gray-700">ペアを組んで実際にゲームを楽しみます。ペアをシャッフルしながら、いろんな方と交流できます。</p>
                         </div>
                     </div>
                     
@@ -219,8 +471,8 @@
                             4
                         </div>
                         <div class="flex-grow">
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">11:00 解散（希望者はランチへ）</h3>
-                            <p class="text-gray-700">お疲れさまでした！希望者は近くのカフェやレストランでランチ交流会。もちろん、そのまま解散もOKです。</p>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">12:00 解散（希望者はランチへ）</h3>
+                            <p class="text-gray-700">お疲れさまでした！希望者は近くのレストランでランチ交流会。もちろん、そのまま解散もOKです!</p>
                         </div>
                     </div>
                 </div>
@@ -234,6 +486,15 @@
             <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
                 参加者の声
             </h2>
+
+            <!-- 参加者の楽しんでいる様子 -->
+            <div class="max-w-5xl mx-auto mb-12">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&h=400&fit=crop" alt="楽しそうな参加者たち" class="rounded-xl shadow-lg w-full h-64 object-cover image-hover">
+                    <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&h=400&fit=crop" alt="ピックルボールを楽しむグループ" class="rounded-xl shadow-lg w-full h-64 object-cover image-hover">
+                </div>
+            </div>
+
             <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 <!-- 声1 -->
                 <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition duration-300">
@@ -305,7 +566,7 @@
                         </div>
                         <div>
                             <h3 class="font-bold text-gray-900 text-lg mb-1">開催日時</h3>
-                            <p class="text-gray-700">2026年2月22日（日）9:00〜11:00</p>
+                            <p class="text-gray-700">2026年3月22日（日）10:00〜12:00</p>
                         </div>
                     </div>
                     
@@ -318,8 +579,8 @@
                         </div>
                         <div>
                             <h3 class="font-bold text-gray-900 text-lg mb-1">開催場所</h3>
-                            <p class="text-gray-700">Pickleball Park One Ginza</p>
-                            <p class="text-sm text-gray-600 mt-1">東京メトロ銀座駅より徒歩5分</p>
+                            <p class="text-gray-700">東京タワー ピックルボールコート</p>
+                            <p class="text-sm text-gray-600 mt-1">東京都港区芝公園４丁目２−８</p>
                         </div>
                     </div>
                     
@@ -332,7 +593,7 @@
                         <div>
                             <h3 class="font-bold text-gray-900 text-lg mb-1">参加費</h3>
                             <p class="text-2xl font-bold text-blue-600">2,000円<span class="text-sm text-gray-600 font-normal ml-2">(目安)</span></p>
-                            <p class="text-sm text-gray-600 mt-1">※ コート代、ラケットレンタル代込み</p>
+                            <p class="text-sm text-gray-600 mt-1">※コート代、ラケットレンタル代込み</p>
                         </div>
                     </div>
                     
@@ -344,8 +605,7 @@
                         </div>
                         <div>
                             <h3 class="font-bold text-gray-900 text-lg mb-1">持ち物</h3>
-                            <p class="text-gray-700">動きやすい服装、運動靴（室内用）、飲み物、タオル</p>
-                            <p class="text-sm text-gray-600 mt-1">※ ラケットは無料レンタル可能です</p>
+                            <p class="text-gray-700">動きやすい服装、運動靴（屋外用）、飲み物、タオル</p>
                         </div>
                     </div>
                     
@@ -380,7 +640,7 @@
                     </h3>
                     <p class="text-gray-700 pl-6">
                         <span class="text-blue-600 font-bold mr-2">A.</span>
-                        もちろん大丈夫です！参加者の約7割が一人参加です。自己紹介の時間やチーム分けを通じて、自然と会話が生まれる環境を作っていますので、安心してご参加ください。
+                        もちろん大丈夫です！参加者の約7割が一人参加です。自己紹介の時間やペア分けを通じて、自然と会話が生まれる環境を作っていますので、安心してご参加ください。
                     </p>
                 </div>
                 
@@ -404,7 +664,7 @@
                     </h3>
                     <p class="text-gray-700 pl-6">
                         <span class="text-blue-600 font-bold mr-2">A.</span>
-                        ラケットとボールは無料でレンタルできますので、手ぶらでOKです。動きやすい服装と運動靴（室内用）、飲み物とタオルをお持ちください。更衣室も完備しています。
+                        手ぶらでOKです。動きやすい服装と運動靴、飲み物とタオルをお持ちください。ラケットをご持参頂いてもウェルカムです！
                     </p>
                 </div>
                 
@@ -416,7 +676,7 @@
                     </h3>
                     <p class="text-gray-700 pl-6">
                         <span class="text-blue-600 font-bold mr-2">A.</span>
-                        20代〜30代の参加者が中心ですが、スポーツや交流を楽しみたい方であれば、どなたでも歓迎します。男女比は参加回によって異なりますが、バランスよく構成されることが多いです。
+                        20代〜30代の参加者が中心です。人数や男女比は参加回によって異なります。
                     </p>
                 </div>
                 
@@ -428,7 +688,7 @@
                     </h3>
                     <p class="text-gray-700 pl-6">
                         <span class="text-blue-600 font-bold mr-2">A.</span>
-                        開催日の3日前までであれば、キャンセル可能です。それ以降のキャンセルは、キャンセル料が発生する場合がございますので、お早めにご連絡ください。
+                        開催日の2日前までであれば、キャンセル可能です。それ以降のキャンセルは、キャンセル料が発生する場合がございますので、お早めにご連絡ください。
                     </p>
                 </div>
             </div>
@@ -443,8 +703,14 @@
             </h2>
             <p class="text-xl mb-8 opacity-90">
                 新しい仲間と、心地よい汗を。<br>
-                銀座で素敵な朝活体験が待っています。
+                素敵な朝活体験が待っています。
             </p>
+
+            <!-- 最終CTA前の画像 -->
+            <!-- <div class="max-w-2xl mx-auto mb-8">
+                <img src="https://images.unsplash.com/photo-1521805103424-d8f8430e8933?w=800&h=400&fit=crop" alt="一緒に楽しもう" class="rounded-xl shadow-2xl w-full">
+            </div> -->
+
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSdzkEes3nz7Nqbn6hPAcN4JjZhI2B_vaW-gRjo6XoVM089rjw/viewform?usp=dialog" target="_blank" class="inline-block bg-white text-blue-600 hover:bg-gray-100 font-bold text-lg px-12 py-5 rounded-full shadow-2xl hover:shadow-3xl transform hover:scale-105 transition duration-300">
                 参加申し込みはこちら
             </a>
@@ -456,16 +722,13 @@
     <footer class="bg-gray-900 text-white py-8">
         <div class="container mx-auto px-4 text-center">
             <p class="text-gray-400 text-sm">
-                © 2026 銀座ピックルボール交流会. All rights reserved.
-            </p>
-            <p class="text-gray-500 text-xs mt-2">
-                お問い合わせ: info@ginza-pickleball.com
+                © 2026 ピックルボール交流会. All rights reserved.
             </p>
         </div>
     </footer>
 
     <!-- トースト通知 -->
-    <div id="toast" class="toast-notification">
+    <!-- <div id="toast" class="toast-notification">
         <div class="toast-content">
             <div class="toast-icon">💡</div>
             <p class="toast-message">
@@ -473,9 +736,163 @@
             </p>
             <button id="toast-close" class="toast-close">&times;</button>
         </div>
-    </div>
+    </div> -->
 
     <!-- Custom JavaScript -->
-    <script src="app.js"></script>
+    <script>
+        // カウントダウンタイマーの実装
+        function initCountdown() {
+            // ターゲット日時: 2026年3月22日 09:00
+            const targetDate = new Date('2026-03-22T10:00:00').getTime();
+            
+            // DOM要素の取得
+            const daysElement = document.getElementById('days');
+            const hoursElement = document.getElementById('hours');
+            const minutesElement = document.getElementById('minutes');
+            const secondsElement = document.getElementById('seconds');
+            
+            // カウントダウンを更新する関数
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = targetDate - now;
+                
+                // イベントが終了している場合
+                if (distance < 0) {
+                    daysElement.textContent = '00';
+                    hoursElement.textContent = '00';
+                    minutesElement.textContent = '00';
+                    secondsElement.textContent = '00';
+                    
+                    // カウントダウンエリア全体にメッセージを表示
+                    const countdownContainer = document.getElementById('countdown').parentElement;
+                    countdownContainer.innerHTML = '<p class="text-center text-lg font-bold text-blue-600">開催中または終了しました</p>';
+                    
+                    return;
+                }
+                
+                // 時間の計算
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                // 2桁表示にフォーマット
+                daysElement.textContent = String(days).padStart(2, '0');
+                hoursElement.textContent = String(hours).padStart(2, '0');
+                minutesElement.textContent = String(minutes).padStart(2, '0');
+                secondsElement.textContent = String(seconds).padStart(2, '0');
+            }
+            
+            // 初回実行
+            updateCountdown();
+            
+            // 1秒ごとに更新
+            setInterval(updateCountdown, 1000);
+        }
+
+        // トースト通知の実装
+        function initToast() {
+            const toast = document.getElementById('toast');
+            const closeButton = document.getElementById('toast-close');
+            
+            // 3秒後にトーストを表示
+            setTimeout(() => {
+                toast.classList.add('show');
+            }, 3000);
+            
+            // 閉じるボタンのイベントリスナー
+            closeButton.addEventListener('click', () => {
+                toast.classList.remove('show');
+            });
+            
+            // トースト外をクリックしても閉じる（オプション）
+            toast.addEventListener('click', (e) => {
+                if (e.target === toast) {
+                    toast.classList.remove('show');
+                }
+            });
+        }
+
+        // スムーズスクロールの実装（補助）
+        function initSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+
+        // スクロールアニメーションの実装（オプション）
+        function initScrollAnimation() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            // アニメーション対象の要素を監視
+            document.querySelectorAll('section').forEach(section => {
+                observer.observe(section);
+            });
+        }
+
+        // ページ読み込み時の初期化
+        document.addEventListener('DOMContentLoaded', () => {
+            // カウントダウンタイマーを初期化
+            initCountdown();
+            
+            // トースト通知を初期化
+            initToast();
+            
+            // スムーズスクロールを初期化
+            initSmoothScroll();
+            
+            // スクロールアニメーションを初期化（オプション）
+            initScrollAnimation();
+            
+            // コンソールにメッセージを表示
+            console.log('%cピックルボール交流会へようこそ！', 'color: #2563eb; font-size: 20px; font-weight: bold;');
+            console.log('イベントの詳細はページをご覧ください。');
+        });
+
+        // ウィンドウのリサイズ処理（必要に応じて）
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                // リサイズ後の処理があればここに記述
+                console.log('Window resized');
+            }, 250);
+        });
+
+        // エラーハンドリング
+        window.addEventListener('error', (e) => {
+            console.error('エラーが発生しました:', e.error);
+        });
+
+        // パフォーマンス測定（開発用）
+        window.addEventListener('load', () => {
+            const loadTime = performance.now();
+            console.log(`ページの読み込み時間: ${loadTime.toFixed(2)}ms`);
+        });
+    </script>
 </body>
 </html>
