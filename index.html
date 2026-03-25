@@ -1,21 +1,94 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ピックルボール交流会 | 朝活で新しい繋がりを</title>
-    <meta name="description" content="ピックルボール交流会。初心者大歓迎！20-30代中心で楽しく運動しながら新しい友達を作りませんか？">
-    
+    <meta name="description" content="ピックルボール交流会。初心者大歓迎！20-30代中心で楽しく運動しながら新しい友達を作りませんか？" />
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
+
     <!-- Custom CSS -->
     <style>
+        /* =========================
+           テーマカラー設定
+           ここだけ変更すれば、関連する青色がまとめて変わります
+           ========================= */
+        :root {
+            --theme-primary: #16a34a;
+
+            /* fallback */
+            --theme-primary-hover: #1d4ed8;
+            --theme-primary-deep: #1e40af;
+            --theme-primary-soft: #dbeafe;
+            --theme-primary-softer: #eff6ff;
+            --theme-primary-border: #3b82f6;
+            --theme-primary-border-soft: #bfdbfe;
+
+            /* modern browsers */
+            --theme-primary-hover: color-mix(in srgb, var(--theme-primary) 88%, black);
+            --theme-primary-deep: color-mix(in srgb, var(--theme-primary) 72%, black);
+            --theme-primary-soft: color-mix(in srgb, var(--theme-primary) 14%, white);
+            --theme-primary-softer: color-mix(in srgb, var(--theme-primary) 7%, white);
+            --theme-primary-border: color-mix(in srgb, var(--theme-primary) 55%, white);
+            --theme-primary-border-soft: color-mix(in srgb, var(--theme-primary) 25%, white);
+        }
+
+        /* Tailwind の blue 系クラスをテーマカラーに紐づける */
+        .text-blue-600 {
+            color: var(--theme-primary) !important;
+        }
+
+        .text-blue-700 {
+            color: var(--theme-primary-deep) !important;
+        }
+
+        .bg-blue-50 {
+            background-color: var(--theme-primary-softer) !important;
+        }
+
+        .bg-blue-100 {
+            background-color: var(--theme-primary-soft) !important;
+        }
+
+        .bg-blue-600 {
+            background-color: var(--theme-primary) !important;
+        }
+
+        .border-blue-500 {
+            border-color: var(--theme-primary-border) !important;
+        }
+
+        .border-blue-200 {
+            border-color: var(--theme-primary-border-soft) !important;
+        }
+
+        .hover\:bg-blue-700:hover {
+            background-color: var(--theme-primary-hover) !important;
+        }
+
+        .hover\:bg-blue-100:hover {
+            background-color: var(--theme-primary-soft) !important;
+        }
+
+        .from-blue-50 {
+            --tw-gradient-from: var(--theme-primary-softer) var(--tw-gradient-from-position) !important;
+        }
+
+        .from-blue-600 {
+            --tw-gradient-from: var(--theme-primary) var(--tw-gradient-from-position) !important;
+        }
+
+        .to-blue-700 {
+            --tw-gradient-to: var(--theme-primary-deep) var(--tw-gradient-to-position) !important;
+        }
+
         /* グローバル設定 */
         * {
             margin: 0;
@@ -41,7 +114,7 @@
             bottom: 30px;
             right: 30px;
             max-width: 400px;
-            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            background: linear-gradient(135deg, var(--theme-primary) 0%, var(--theme-primary-deep) 100%);
             color: white;
             border-radius: 12px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
@@ -195,7 +268,7 @@
         /* スムーズなフォーカス表示 */
         button:focus,
         a:focus {
-            outline: 2px solid #2563eb;
+            outline: 2px solid var(--theme-primary);
             outline-offset: 2px;
         }
 
@@ -226,12 +299,12 @@
         }
 
         ::-webkit-scrollbar-thumb {
-            background: #2563eb;
+            background: var(--theme-primary);
             border-radius: 5px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: #1e40af;
+            background: var(--theme-primary-deep);
         }
 
         /* プリント時の最適化 */
@@ -245,7 +318,7 @@
     </style>
 </head>
 <body class="font-sans">
-    
+
     <!-- ヒーローセクション -->
     <section class="hero-section relative bg-gradient-to-br from-blue-50 to-white">
         <div class="container mx-auto px-4 py-16 md:py-24">
@@ -256,14 +329,14 @@
                         初心者大歓迎！
                     </div>
                     <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                        『ピックルボール』を<br>
+                        『ピックルボール』を<br />
                         一緒にプレイしませんか？
                     </h1>
                     <p class="text-lg text-gray-600 mb-8">
-                        運動不足解消 × 友達作り<br>
+                        運動不足解消 × 友達作り<br />
                         20-30代が中心の、アットホームな交流会です。
                     </p>
-                    
+
                     <!-- イベント詳細 -->
                     <div class="bg-white rounded-xl shadow-lg p-6 mb-8 border-2 border-blue-500">
                         <div class="flex items-center justify-center md:justify-start mb-4">
@@ -274,7 +347,7 @@
                         </div>
                         <p class="text-3xl font-bold text-blue-600 mb-2">4月18日(土) 17:00〜19:00</p>
                         <p class="text-gray-700 font-medium">📍 東京タワー ピックルボールコート</p>
-                        
+
                         <!-- カウントダウン -->
                         <div class="mt-6 pt-6 border-t border-gray-200">
                             <p class="text-sm text-gray-600 mb-3">開催まであと</p>
@@ -298,17 +371,22 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- CTA ボタン -->
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdzkEes3nz7Nqbn6hPAcN4JjZhI2B_vaW-gRjo6XoVM089rjw/viewform?usp=dialog" target="_blank" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg px-10 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300">
+                    <a
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSdzkEes3nz7Nqbn6hPAcN4JjZhI2B_vaW-gRjo6XoVM089rjw/viewform?usp=dialog"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg px-10 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300"
+                    >
                         今すぐ参加申し込み
                     </a>
                     <p class="text-sm text-gray-500 mt-4">※ 定員になり次第、受付終了となります</p>
                 </div>
-                
+
                 <!-- 右側: メイン画像 -->
                 <div class="order-first md:order-last">
-                    <img src="./img/pikle_logo1.jpg" alt="ピックルボールを楽しむ人々" class="rounded-2xl shadow-2xl w-full image-hover">
+                    <img src="./img/pikle_logo1.jpg" alt="ピックルボールを楽しむ人々" class="rounded-2xl shadow-2xl w-full image-hover" />
                 </div>
             </div>
         </div>
@@ -330,9 +408,8 @@
                 <!-- 画像付き説明 -->
                 <div class="grid md:grid-cols-2 gap-8 items-center mb-12">
                     <div>
-                        <!-- <img src="https://images.unsplash.com/photo-1622163642998-1ea32b0bbc67?w=800&h=600&fit=crop" alt="ピックルボールのラリー" class="rounded-xl shadow-lg w-full image-hover"> -->
-                         <video autoplay loop muted playsinline>
-                            <source src="./video/video1.mp4" type="video/mp4">
+                        <video autoplay loop muted playsinline class="rounded-xl shadow-lg w-full image-hover">
+                            <source src="./video/video1.mp4" type="video/mp4" />
                             お使いのブラウザは動画タグに対応していません。
                         </video>
                     </div>
@@ -359,14 +436,16 @@
 
                 <!-- ピックルボールギャラリー -->
                 <div class="gallery-grid mb-8">
-                    <img src="./img/usiro_sugata1.JPG" alt="ピックルボールのプレイシーン1" class="rounded-lg shadow-md w-full h-64 object-cover image-hover">
-                    <img src="./img/play1.jpg" alt="ピックルボールのプレイシーン2" class="rounded-lg shadow-md w-full h-64 object-cover image-hover">
-                    <img src="./img/play2.png" alt="ピックルボールのプレイシーン3" class="rounded-lg shadow-md w-full h-64 object-cover image-hover">
-                    <img src="./img/sygou.png" alt="ピックルボールのプレイシーン4" class="rounded-lg shadow-md w-full h-64 object-cover image-hover">
+                    <img src="./img/play1.jpg" alt="ピックルボールのプレイシーン1" class="rounded-lg shadow-md w-full h-64 object-cover image-hover" />
+                    <img src="./img/play2.jpg" alt="ピックルボールのプレイシーン2" class="rounded-lg shadow-md w-full h-64 object-cover image-hover" />
+                    <img src="./img/play3.jpg" alt="ピックルボールのプレイシーン3" class="rounded-lg shadow-md w-full h-64 object-cover image-hover" />
+                    <img src="./img/sygou.png" alt="ピックルボールのプレイシーン4" class="rounded-lg shadow-md w-full h-64 object-cover image-hover" />
                 </div>
 
                 <p class="text-gray-700 leading-relaxed text-center max-w-3xl mx-auto">
-                    ピックルボールは、運動神経に自信がない方でも楽しめる交流を中心としたスポーツです。<br/>ボールの速度も緩やかで「スポーツは苦手…」という方こそ、ぜひ一度体験してみてください！<br/>きっと「楽しい！」と思っていただけるはずです。
+                    ピックルボールは、運動神経に自信がない方でも楽しめる交流を中心としたスポーツです。<br />
+                    ボールの速度も緩やかで「スポーツは苦手…」という方こそ、ぜひ一度体験してみてください！<br />
+                    きっと「楽しい！」と思っていただけるはずです。
                 </p>
             </div>
         </div>
@@ -391,7 +470,7 @@
                         参加者の約8割が初心者です。ラケットはレンタルできるので、手ぶらでOK！ ルールを説明などサポートします。運動が苦手な方も安心してご参加ください。
                     </p>
                 </div>
-                
+
                 <!-- 特徴2 -->
                 <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition duration-300">
                     <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6 mx-auto">
@@ -405,12 +484,12 @@
                         都内のコートを使用してプレイします。どこもアクセス抜群の朝活にぴったりの立地です。
                     </p>
                 </div>
-                
+
                 <!-- 特徴3 -->
                 <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition duration-300">
                     <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6 mx-auto">
                         <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0z"></path>
                         </svg>
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">交流がメイン</h3>
@@ -422,17 +501,12 @@
         </div>
     </section>
 
-    <!-- 当日の流れセクション（画像追加版） -->
+    <!-- 当日の流れセクション -->
     <section class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
                 当日の流れ
             </h2>
-
-            <!-- プレイ風景画像 -->
-            <!-- <div class="max-w-4xl mx-auto mb-12 flex justify-center">
-                <img src="./img/ai_play1.png" alt="ピックルボール交流会の様子" class="rounded-2xl shadow-xl w-1/2 image-hover">
-            </div> -->
 
             <div class="max-w-3xl mx-auto">
                 <div class="space-y-6">
@@ -446,7 +520,7 @@
                             <p class="text-gray-700">会場に集合後、簡単な受付と自己紹介タイム。リラックスした雰囲気でスタートします。</p>
                         </div>
                     </div>
-                    
+
                     <!-- ステップ2 -->
                     <div class="flex items-start bg-blue-50 rounded-xl p-6 hover:bg-blue-100 transition duration-300">
                         <div class="flex-shrink-0 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg mr-4">
@@ -457,7 +531,7 @@
                             <p class="text-gray-700">簡単なルール説明して、その後、基礎練習でラケットとボールに慣れていきます。</p>
                         </div>
                     </div>
-                    
+
                     <!-- ステップ3 -->
                     <div class="flex items-start bg-blue-50 rounded-xl p-6 hover:bg-blue-100 transition duration-300">
                         <div class="flex-shrink-0 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg mr-4">
@@ -468,7 +542,7 @@
                             <p class="text-gray-700">ペアを組んで実際にゲームを楽しみます。ペアをシャッフルしながら、いろんな方と交流できます。</p>
                         </div>
                     </div>
-                    
+
                     <!-- ステップ4 -->
                     <div class="flex items-start bg-blue-50 rounded-xl p-6 hover:bg-blue-100 transition duration-300">
                         <div class="flex-shrink-0 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg mr-4">
@@ -491,14 +565,6 @@
                 参加者の声
             </h2>
 
-            <!-- 参加者の楽しんでいる様子 -->
-            <!-- <div class="max-w-5xl mx-auto mb-12 flex justify-center">
-                <div class="w-full md:w-1/2" style=""> -->
-                    <!-- <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&h=400&fit=crop" alt="楽しそうな参加者たち" class="rounded-xl shadow-lg w-full h-64 object-cover image-hover"> -->
-                    <!-- <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&h=400&fit=crop" alt="ピックルボールを楽しむグループ" class="rounded-xl shadow-lg w-full h-64 object-cover image-hover">
-                </div>
-            </div> -->
-
             <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 <!-- 声1 -->
                 <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition duration-300">
@@ -516,7 +582,7 @@
                         「運動が苦手な私でも本当に楽しめました！みんなフレンドリーですぐに打ち解けられました。また参加したいです。」
                     </p>
                 </div>
-                
+
                 <!-- 声2 -->
                 <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition duration-300">
                     <div class="flex items-center mb-4">
@@ -533,7 +599,7 @@
                         「在宅勤務で運動不足だったので、朝から体を動かせて最高でした。仕事以外の繋がりができて、週末が楽しみになりました！」
                     </p>
                 </div>
-                
+
                 <!-- 声3 -->
                 <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition duration-300">
                     <div class="flex items-center mb-4">
@@ -573,7 +639,7 @@
                             <p class="text-gray-700">2026年4月18日（土）17:00〜19:00</p>
                         </div>
                     </div>
-                    
+
                     <div class="flex items-start">
                         <div class="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center mr-4 mt-1">
                             <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -587,7 +653,7 @@
                             <p class="text-sm text-gray-600 mt-1">東京都港区芝公園４丁目２−８</p>
                         </div>
                     </div>
-                    
+
                     <div class="flex items-start">
                         <div class="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center mr-4 mt-1">
                             <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -600,7 +666,7 @@
                             <p class="text-sm text-gray-600 mt-1">※コート代、ラケットレンタル代込み</p>
                         </div>
                     </div>
-                    
+
                     <div class="flex items-start">
                         <div class="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center mr-4 mt-1">
                             <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -612,11 +678,11 @@
                             <p class="text-gray-700">動きやすい服装、運動靴（屋外用）、飲み物、タオル</p>
                         </div>
                     </div>
-                    
+
                     <div class="flex items-start">
                         <div class="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center mr-4 mt-1">
                             <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0z"></path>
                             </svg>
                         </div>
                         <div>
@@ -647,7 +713,7 @@
                         もちろん大丈夫です！参加者の約7割が一人参加です。自己紹介の時間やペア分けを通じて、自然と会話が生まれる環境を作っていますので、安心してご参加ください。
                     </p>
                 </div>
-                
+
                 <!-- FAQ2 -->
                 <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition duration-300">
                     <h3 class="font-bold text-lg text-gray-900 mb-3 flex items-start">
@@ -659,7 +725,7 @@
                         全く問題ありません！ピックルボールは運動神経に関係なく楽しめるスポーツです。ボールの速度も緩やかで、激しい動きは少ないです。参加者のほとんどが初心者なので、お気軽にご参加ください。
                     </p>
                 </div>
-                
+
                 <!-- FAQ3 -->
                 <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition duration-300">
                     <h3 class="font-bold text-lg text-gray-900 mb-3 flex items-start">
@@ -671,7 +737,7 @@
                         手ぶらでOKです。動きやすい服装と運動靴、飲み物とタオルをお持ちください。ラケットをご持参頂いてもウェルカムです！
                     </p>
                 </div>
-                
+
                 <!-- FAQ4 -->
                 <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition duration-300">
                     <h3 class="font-bold text-lg text-gray-900 mb-3 flex items-start">
@@ -683,7 +749,7 @@
                         20代〜30代の参加者が中心です。人数や男女比は参加回によって異なります。
                     </p>
                 </div>
-                
+
                 <!-- FAQ5 -->
                 <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition duration-300">
                     <h3 class="font-bold text-lg text-gray-900 mb-3 flex items-start">
@@ -709,12 +775,12 @@
                 一緒に心地よい汗を流しましょう！
             </p>
 
-            <!-- 最終CTA前の画像 -->
-            <!-- <div class="max-w-2xl mx-auto mb-8">
-                <img src="https://images.unsplash.com/photo-1521805103424-d8f8430e8933?w=800&h=400&fit=crop" alt="一緒に楽しもう" class="rounded-xl shadow-2xl w-full">
-            </div> -->
-
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdzkEes3nz7Nqbn6hPAcN4JjZhI2B_vaW-gRjo6XoVM089rjw/viewform?usp=dialog" target="_blank" class="inline-block bg-white text-blue-600 hover:bg-gray-100 font-bold text-lg px-12 py-5 rounded-full shadow-2xl hover:shadow-3xl transform hover:scale-105 transition duration-300">
+            <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSdzkEes3nz7Nqbn6hPAcN4JjZhI2B_vaW-gRjo6XoVM089rjw/viewform?usp=dialog"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-block bg-white text-blue-600 hover:bg-gray-100 font-bold text-lg px-12 py-5 rounded-full shadow-2xl hover:shadow-3xl transform hover:scale-105 transition duration-300"
+            >
                 参加申し込みはこちら
             </a>
             <p class="text-sm mt-6 opacity-75">定員に達し次第、受付を終了いたします</p>
@@ -731,7 +797,8 @@
     </footer>
 
     <!-- トースト通知 -->
-    <!-- <div id="toast" class="toast-notification">
+    <!--
+    <div id="toast" class="toast-notification">
         <div class="toast-content">
             <div class="toast-icon">💡</div>
             <p class="toast-message">
@@ -739,56 +806,61 @@
             </p>
             <button id="toast-close" class="toast-close">&times;</button>
         </div>
-    </div> -->
+    </div>
+    -->
 
     <!-- Custom JavaScript -->
     <script>
         // カウントダウンタイマーの実装
         function initCountdown() {
-            // ターゲット日時: 2026年3月22日 09:00
-            const targetDate = new Date('2026-04-18T17:00:00').getTime();
-            
+            // ターゲット日時: 2026年4月18日 17:00（日本時間）
+            const targetDate = new Date('2026-04-18T17:00:00+09:00').getTime();
+
             // DOM要素の取得
             const daysElement = document.getElementById('days');
             const hoursElement = document.getElementById('hours');
             const minutesElement = document.getElementById('minutes');
             const secondsElement = document.getElementById('seconds');
-            
+
+            // 必須要素がない場合は処理しない
+            if (!daysElement || !hoursElement || !minutesElement || !secondsElement) return;
+
             // カウントダウンを更新する関数
             function updateCountdown() {
                 const now = new Date().getTime();
                 const distance = targetDate - now;
-                
+
                 // イベントが終了している場合
                 if (distance < 0) {
                     daysElement.textContent = '00';
                     hoursElement.textContent = '00';
                     minutesElement.textContent = '00';
                     secondsElement.textContent = '00';
-                    
-                    // カウントダウンエリア全体にメッセージを表示
-                    const countdownContainer = document.getElementById('countdown').parentElement;
-                    countdownContainer.innerHTML = '<p class="text-center text-lg font-bold text-blue-600">終了しました</p>';
-                    
+
+                    const countdownElement = document.getElementById('countdown');
+                    if (countdownElement && countdownElement.parentElement) {
+                        countdownElement.parentElement.innerHTML =
+                            '<p class="text-center text-lg font-bold text-blue-600">終了しました</p>';
+                    }
                     return;
                 }
-                
+
                 // 時間の計算
                 const days = Math.floor(distance / (1000 * 60 * 60 * 24));
                 const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                
+
                 // 2桁表示にフォーマット
                 daysElement.textContent = String(days).padStart(2, '0');
                 hoursElement.textContent = String(hours).padStart(2, '0');
                 minutesElement.textContent = String(minutes).padStart(2, '0');
                 secondsElement.textContent = String(seconds).padStart(2, '0');
             }
-            
+
             // 初回実行
             updateCountdown();
-            
+
             // 1秒ごとに更新
             setInterval(updateCountdown, 1000);
         }
@@ -797,17 +869,20 @@
         function initToast() {
             const toast = document.getElementById('toast');
             const closeButton = document.getElementById('toast-close');
-            
+
+            // トーストが存在しない場合は何もしない
+            if (!toast || !closeButton) return;
+
             // 3秒後にトーストを表示
             setTimeout(() => {
                 toast.classList.add('show');
             }, 3000);
-            
+
             // 閉じるボタンのイベントリスナー
             closeButton.addEventListener('click', () => {
                 toast.classList.remove('show');
             });
-            
+
             // トースト外をクリックしても閉じる（オプション）
             toast.addEventListener('click', (e) => {
                 if (e.target === toast) {
@@ -819,11 +894,11 @@
         // スムーズスクロールの実装（補助）
         function initSmoothScroll() {
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
+                anchor.addEventListener('click', function (e) {
                     e.preventDefault();
                     const targetId = this.getAttribute('href');
                     if (targetId === '#') return;
-                    
+
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
                         targetElement.scrollIntoView({
@@ -837,11 +912,13 @@
 
         // スクロールアニメーションの実装（オプション）
         function initScrollAnimation() {
+            if (!('IntersectionObserver' in window)) return;
+
             const observerOptions = {
                 threshold: 0.1,
                 rootMargin: '0px 0px -100px 0px'
             };
-            
+
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -850,7 +927,7 @@
                     }
                 });
             }, observerOptions);
-            
+
             // アニメーション対象の要素を監視
             document.querySelectorAll('section').forEach(section => {
                 observer.observe(section);
@@ -859,20 +936,19 @@
 
         // ページ読み込み時の初期化
         document.addEventListener('DOMContentLoaded', () => {
-            // カウントダウンタイマーを初期化
             initCountdown();
-            
-            // トースト通知を初期化
             initToast();
-            
-            // スムーズスクロールを初期化
             initSmoothScroll();
-            
-            // スクロールアニメーションを初期化（オプション）
             initScrollAnimation();
-            
-            // コンソールにメッセージを表示
-            console.log('%cピックルボール交流会へようこそ！', 'color: #2563eb; font-size: 20px; font-weight: bold;');
+
+            const themePrimary = getComputedStyle(document.documentElement)
+                .getPropertyValue('--theme-primary')
+                .trim() || '#2563eb';
+
+            console.log(
+                '%cピックルボール交流会へようこそ！',
+                `color: ${themePrimary}; font-size: 20px; font-weight: bold;`
+            );
             console.log('イベントの詳細はページをご覧ください。');
         });
 
@@ -881,7 +957,6 @@
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimer);
             resizeTimer = setTimeout(() => {
-                // リサイズ後の処理があればここに記述
                 console.log('Window resized');
             }, 250);
         });
